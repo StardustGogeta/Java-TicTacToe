@@ -8,17 +8,27 @@
 public class Board
 {
     private int[][] board = new int[3][3];
-    
-    makeMove(Player player)
+    private static HashMap<String, Integer> map = new HashMap<>()
+    public void makeMove(Player player)
     {
         int[] move = player.getMove();
         x = move[0]; y = move[1];
         if (checkValid(x, y))
             board[x][y] = player.id;
     }
-    boolean checkVictory()
+    public int checkVictory()
+    {
+        //return 4 if tie
+    }
     private boolean checkValid(int x, int y)
-    public String toString();
+    {
+        return board[x][y] == 0;
+    }
+    public String toString()
+    {
+        String str = "---------\n" +
+        
+    }
 }
 
 /** player
