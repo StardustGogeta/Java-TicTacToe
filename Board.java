@@ -14,6 +14,9 @@ public class Board
         put(2, "O");
         put(3, "O");
     }};
+    /**
+     * takes a Player as argument. Requires int id and int[] getMove()
+     */
     public void makeMove(Player player)
     {
         int[] move = player.getMove();
@@ -21,6 +24,12 @@ public class Board
         if (checkValid(x, y))
             board[x][y] = player.id;
     }
+    /**
+     * returns:
+     * 0 : moves still avilable, no victory
+     * 1, 2, 3 : id of victor
+     * -1 : tie
+     */
     public int checkVictory()
     {
         //check the rows
@@ -43,9 +52,9 @@ public class Board
                 if(space == 0)
                     return 0;
         //tie
-        return 4;
+        return -1;
     }
-    private boolean checkValid(int x, int y)
+    public boolean checkValid(int x, int y)
     {
         return board[x][y] == 0;
     }
