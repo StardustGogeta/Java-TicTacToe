@@ -7,10 +7,7 @@
  */
 public abstract class Player
 {
-    private int id;
-    Player (int name){
-        id = name;
-    }
+    public int id;
     abstract int[] getMove();
 }
 
