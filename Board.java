@@ -9,21 +9,22 @@ public class Board
 {
     private int[][] board = new int[3][3];
     private static HashMap<Integer, String> symbols = new HashMap(){{
-        put(0, " ");
-        put(1, "X");
-        put(2, "O");
-        put(3, "O");
-    }};
+                put(0, " ");
+                put(1, "X");
+                put(2, "O");
+                put(3, "O");
+            }};
     /**
      * takes a Player as argument. Requires int id and int[] getMove()
      */
     public void makeMove(Player player)
     {
-        int[] move = player.getMove();
+        int[] move = player.getMove(this);
         int x = move[0], y = move[1];
         if (checkValid(x, y))
-            board[x][y] = player.id;
+            board[y][x] = player.id;
     }
+
     /**
      * returns:
      * 0 : moves still avilable, no victory
@@ -44,8 +45,8 @@ public class Board
         }
         //check both diagnols
         if(board[0][0] == board[1][1] && board[1][1] == board[2][2] ||
-           board[0][2] == board[1][1] && board[1][1] == board[2][0])
-           return board[1][1];
+        board[0][2] == board[1][1] && board[1][1] == board[2][0])
+            return board[1][1];
         //check if moves can be made
         for(int[] row : board)
             for(int space : row)
@@ -54,10 +55,12 @@ public class Board
         //tie
         return -1;
     }
+
     public boolean checkValid(int x, int y)
     {
-        return board[x][y] == 0;
+        return board[y][x] == 0;
     }
+
     public String toString()
     {
         String str = "-------\n";
@@ -67,6 +70,11 @@ public class Board
             str += "-------\n";
         }
         return str;
+    }
+
+    public int[][] getBoard()
+    {
+        return board;
     }
 }
 

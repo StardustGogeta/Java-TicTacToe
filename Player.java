@@ -8,6 +8,6 @@
 public abstract class Player
 {
     public int id;
-    abstract int[] getMove();
+    abstract int[] getMove(Board board);
 }
 
