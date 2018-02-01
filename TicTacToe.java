@@ -35,7 +35,7 @@ public class TicTacToe {
 
     private static int runSuperGame() {
         System.out.println("Grandmaster Record (for Player 1):\nW: " + sWins + "\tT: " + sTies + "\tL: " + sLosses);
-        Board superBoard = new Board();
+        Board superBoard = new Board(true);
         int move[];
         while (superBoard.checkVictory() == 0) {
             // Run mini-game

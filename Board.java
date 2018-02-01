@@ -7,13 +7,27 @@
 import java.util.HashMap;
 public class Board
 {
-    private int[][] board = new int[3][3];
-    private static HashMap<Integer, String> symbols = new HashMap(){{
+    private static final char vertMaster = '‖';
+    private static final char horzMaster = '~';
+    private static final char vertNormal = '|';
+    private static final char horzNormal = '―';
+    private static final HashMap<Integer, String> symbols = new HashMap(){{
                 put(0, " ");
                 put(1, "X");
                 put(2, "O");
                 put(3, "O");
             }};
+            
+    private int[][] board = new int[3][3];
+    private boolean isMaster;
+    public Board(boolean isMaster)
+    {
+        this.isMaster = isMaster;
+    }
+    public Board()
+    {
+        this.isMaster = false;
+    }
     /**
      * takes a Player as argument. Requires int id and int[] getMove()
      */
@@ -60,14 +74,28 @@ public class Board
     {
         return board[y][x] == 0;
     }
-
+    
+    private static String mult(char c, int i)
+    {
+        return mult(Character.toString(c), i);
+    }
+    private static String mult(String c, int i)
+    {
+        String s = "";
+        for(int _=0; _<=i; _++)
+            s+= c;
+        return s;
+    }
     public String toString()
     {
-        String str = "-------\n";
+        char vert = isMaster ? vertMaster : vertNormal;
+        char horz = isMaster ? horzMaster : horzNormal;
+        String sep = mult(horz, 7) + "\n";
+        String str = sep;
         for(int[] row : board)
         {
-            str += "|" + symbols.get(row[0]) + "|" + symbols.get(row[1]) + "|" + symbols.get(row[2]) + "|\n";
-            str += "-------\n";
+            str += vert + symbols.get(row[0]) + vert + symbols.get(row[1]) + vert + symbols.get(row[2]) + vert + "\n";
+            str += sep;
         }
         return str;
     }
