@@ -21,8 +21,8 @@ public class Board
     {
         int[] move = player.getMove(this);
         int x = move[0], y = move[1];
-        if (checkValid(x, y))
-            board[y][x] = player.id;
+        assert checkValid(x, y);
+        board[y][x] = player.id;
     }
 
     /**
