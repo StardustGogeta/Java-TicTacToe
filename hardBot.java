@@ -4,9 +4,13 @@
  *
  * @author (your name)
  * @version (a version number or a date)
+ * 
+ * to do:
+ * astetically change grand master board
  */
 public class hardBot extends Player
 {
+    private static easyBot easy = new easyBot(500);
     public int id = 3;
     /**
      * constructors
@@ -19,7 +23,13 @@ public class hardBot extends Player
     
     public int[] getMove(Board boardy)
     {
+        int[][] board = boardy.getBoard();
         //check if there are any 2 in a row on the board
+        int[] move = checkBoard(board);
+        if(move != null)
+            return move;
+        else
+            return easy.getMove(boardy);
     }
 
     /**
@@ -57,5 +67,10 @@ public class hardBot extends Player
         
         //nothing applies
         return null;
+    }
+    
+    public int getID()
+    {
+        return id;
     }
 }
