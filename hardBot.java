@@ -41,28 +41,28 @@ public class hardBot extends Player
      */
     private int[] checkBoard(int[][] board)
     {
-        //collumns
+        // columns
         for(int i=0; i<board.length; i++)
-            if(board[i][0] == board[i][1])
+            if(board[i][0] == board[i][1] && board[i][2] == 0)
                 return new int[]{2, i};
-            else if(board[i][1] == board[i][2])
+            else if(board[i][1] == board[i][2] && board[i][0] == 0)
                 return new int[]{0, i};
-        //rowws
+        // rows
         for(int i = 0; i < board[0].length; i++)
         {
-            if(board[0][i] == board[1][i])
-                return new int[]{2, i};
-            else if (board[1][i] == board[2][i])
-                return new int[]{0, i};
+            if(board[0][i] == board[1][i] && board[2][i] == 0)
+                return new int[]{i, 2};
+            else if (board[1][i] == board[2][i] && board[0][i] == 0)
+                return new int[]{i, 0};
         }
-        //diagnols
-        if(board[0][0] == board[1][1])
+        // diagonals
+        if(board[0][0] == board[1][1] && board[2][2] == 0)
             return new int[]{2, 2};
-        else if (board[1][1] == board[2][2])
+        else if (board[1][1] == board[2][2] && board[0][0] == 0)
             return new int[]{0, 0};
-        else if (board[0][2] == board[1][1])
+        else if (board[0][2] == board[1][1] && board[2][0] == 0)
             return new int[]{0, 2};
-        else if(board[1][1] == board[2][0])
+        else if(board[1][1] == board[2][0] && board[0][2] == 0)
             return new int[] {2, 0};
         
         //nothing applies
