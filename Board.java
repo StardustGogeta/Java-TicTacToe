@@ -45,7 +45,7 @@ public class Board
         }
         //check both diagnols
         if(board[1][1] != 0 && (board[0][0] == board[1][1] && board[1][1] == board[2][2] ||
-        board[0][2] == board[1][1] && board[1][1] == board[2][0])
+        board[0][2] == board[1][1] && board[1][1] == board[2][0]))
             return board[1][1];
         //check if moves can be made
         for(int[] row : board)
