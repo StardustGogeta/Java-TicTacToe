@@ -21,8 +21,8 @@ public class Board
     {
         int[] move = player.getMove(this);
         int x = move[0], y = move[1];
-        if (checkValid(x, y))
-            board[y][x] = player.id;
+        assert checkValid(x, y);
+        board[y][x] = player.id;
     }
 
     /**
@@ -33,11 +33,11 @@ public class Board
      */
     public int checkVictory()
     {
-        //check the rows
+        //check the collums
         for(int[] row : board)
             if(row[0] == row[1] && row[1] == row[2])
                 return row[0];
-        //check the collumns
+        //check the rowws
         for(int i = 0; i < board[0].length; i++)
         {
             if(board[0][i] == board[1][i] && board[1][i] == board[2][i])

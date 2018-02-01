@@ -9,5 +9,12 @@ public abstract class Player
 {
     public int id;
     abstract int[] getMove(Board board);
+
+    public Player(int id)
+    {
+        this.id = id;
+
+    }
+    public Player(){}
 }
 
