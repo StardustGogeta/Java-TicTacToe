@@ -22,7 +22,7 @@ public class Board
         int[] move = player.getMove(this);
         int x = move[0], y = move[1];
         assert checkValid(x, y);
-        board[y][x] = player.id;
+        board[y][x] = player.getId();
     }
 
     /**
