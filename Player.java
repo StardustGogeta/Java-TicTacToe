@@ -7,14 +7,7 @@
  */
 public abstract class Player
 {
-    public int id;
+    abstract int getID();
     abstract int[] getMove(Board board);
-
-    public Player(int id)
-    {
-        this.id = id;
-
-    }
-    public Player(){}
 }
 

@@ -11,6 +11,7 @@ public class easyBot extends Player
     public int id = 2;
     public easyBot(){}
     public easyBot(int id){
+        System.out.println(id);
         this.id = id;
     }
     int[] getMove(Board board){
@@ -23,4 +24,5 @@ public class easyBot extends Player
             }
         } 
     }
+    int getID() { return id; }
 }
