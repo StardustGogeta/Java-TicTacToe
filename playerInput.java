@@ -14,6 +14,7 @@ public class playerInput extends Player
         this.id = id;
     }
     int[] getMove(Board board){
+        System.out.println(board);
         Scanner input = new Scanner(System.in);
         int x,y;
         boolean check = false;
@@ -30,5 +31,6 @@ public class playerInput extends Player
         while (!check);
         int[] a = {x,y};
         return a;
-    }   
+    }
+    int getID() { return id; }
 }

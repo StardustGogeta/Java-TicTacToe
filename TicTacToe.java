@@ -9,7 +9,7 @@ public class TicTacToe {
     private static int sWins = 0, sLosses = 0, sTies = 0, wins = 0, losses = 0, ties = 0;
 
     private final static int PLAYER1_ID = 1, PLAYER2_ID = 2, TIE_ID = -1;
-    private static Player player1 = new easyBot(PLAYER1_ID), player2 = new easyBot(PLAYER2_ID);
+    private static Player player1 = new easyBot(PLAYER1_ID), player2 = new playerInput(PLAYER2_ID);
     // 1 creates a human, 2 creates a random CPU, 3 creates a difficult CPU
 
     private static int runGame() {
@@ -17,7 +17,7 @@ public class TicTacToe {
         Board miniBoard = new Board();
         int victory = 0;
         int move[];
-        System.out.println("start of game");
+        System.out.println("\nTime for a mini-game!");
         while (true) {
             // Let one player make a move
             miniBoard.makeMove(player1);
@@ -27,7 +27,7 @@ public class TicTacToe {
             miniBoard.makeMove(player2);
             victory = miniBoard.checkVictory();
             if (victory != 0) {
-                System.out.println("end of game");
+                System.out.println("FINAL MINI-BOARD:\n" + miniBoard);
                 return victory;
             }
         }
@@ -40,7 +40,7 @@ public class TicTacToe {
         while (superBoard.checkVictory() == 0) {
             // Run mini-game
             int winner = runGame();
-            System.out.println("YAY!");
+            System.out.println("\nTime to make a move on the Grandmaster Board!");
             if (winner != TIE_ID) {
                 if (winner == PLAYER1_ID) {
                     wins++;
@@ -55,6 +55,7 @@ public class TicTacToe {
                 ties++;
                 System.out.println("It's a tie! Time to play again!");
             }
+            System.out.println("Grandmaster Board:\n" + superBoard);
         }
         return superBoard.checkVictory();
     }
