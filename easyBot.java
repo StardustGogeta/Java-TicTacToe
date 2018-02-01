@@ -10,9 +10,13 @@ public class easyBot extends Player
 {
     int[] getMove(Board board){
         Random rand = new Random();
-        
+        while(true){
+            int x = rand.nextInt(3);
+            int y = rand.nextInt(3);
+            if (board.checkValid(x,y)){
+                return new int[] {x,y};
+            }
+        } 
     }
-    private boolean checkBoard(Board boardy){
-        int[][] board = boardy.getBoard();
-    }
+
 }
