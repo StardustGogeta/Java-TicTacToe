@@ -83,7 +83,7 @@ public class Board
     private static String mult(String c, int i)
     {
         String s = "";
-        for(int _=0; _<=i; _++)
+        for(int _=0; _<i; _++)
             s+= c;
         return s;
     }
@@ -91,7 +91,7 @@ public class Board
     {
         char vert = isMaster ? vertMaster : vertNormal;
         char horz = isMaster ? horzMaster : horzNormal;
-        String sep = mult(horz, 7) + "\n";
+        String sep = mult(horz, isMaster ? 6 : 7) + "\n";
         String str = sep;
         for(int[] row : board)
         {
