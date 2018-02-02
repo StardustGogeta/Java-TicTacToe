@@ -16,7 +16,7 @@ public class playerInput extends Player
     int[] getMove(Board board){
         System.out.println(board);
         Scanner input = new Scanner(System.in);
-        int x,y;
+        int y, x;
         boolean check = false;
         do{
             System.out.println("Input your move's \'X\' coordinate");
@@ -25,12 +25,12 @@ public class playerInput extends Player
             System.out.println("Input your move's \'Y\' coordinate");
             y = input.nextInt();
             input.nextLine();
-            if (board.checkValid(x,y))
+            if (board.checkValid(y, x))
                 check = true;
             else System.out.println("Invalid coordinates!\nTry again!");
         }
         while (!check);
-        int[] a = {x,y};
+        int[] a = {y, x};
         return a;
     }
     int getID() { return id; }

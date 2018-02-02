@@ -34,8 +34,8 @@ public class Board
     public void makeMove(Player player)
     {
         int[] move = player.getMove(this);
-        int x = move[0], y = move[1];
-        assert checkValid(x, y) : "" + x + ", " + y + " is not a valid co-ordinate";
+        int y = move[0], x = move[1];
+        assert checkValid(y, x) : toString() + "\n" + y + ", " + x + " is not a valid co-ordinate";
         board[y][x] = player.getID();
     }
 
@@ -70,7 +70,7 @@ public class Board
         return -1;
     }
 
-    public boolean checkValid(int x, int y)
+    public boolean checkValid(int y, int x)
     {
         if (y < 3 && x < 3 && y >= 0 && x >= 0) return board[y][x] == 0;
         return false;

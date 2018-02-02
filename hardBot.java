@@ -38,25 +38,25 @@ public class hardBot extends Player
      */
     private int[] checkBoard(int[][] board)
     {
-        // columns
+        // rows
         for(int i=0; i<board.length; i++)
             if(board[i][0] == board[i][1] && board[i][2] == 0 && board[i][0] != 0)
-                return new int[]{2, i};
+                return new int[]{i, 2};
             else if(board[i][1] == board[i][2] && board[i][0] == 0 && board[i][1] != 0)
-                return new int[]{0, i};
-            //check space in between
+                return new int[]{i, 0};
+            // check space in between
             else if(board[i][0] == board[i][2] && board[i][0] != 0 && board[i][1] == 0)
-                return new int[]{1, i};
-        // rows
+                return new int[]{i, 1};
+        // columns
         for(int i = 0; i < board[0].length; i++)
         {
             if(board[0][i] == board[1][i] && board[2][i] == 0 && board[0][i] != 0)
-                return new int[]{i, 2};
+                return new int[]{2, i};
             else if (board[1][i] == board[2][i] && board[0][i] == 0 && board[1][i] != 0)
-                return new int[]{i, 0};
+                return new int[]{0, i};
             // check space in between
-            else if (board[0][i] == board[2][i] && board[1][i] == 0 && board[0][1] != 0)
-                return new int[]{1, 0};
+            else if (board[0][i] == board[2][i] && board[1][i] == 0 && board[0][i] != 0)
+                return new int[]{1, i};
         }
         // diagonals
         if(board[0][0] == board[1][1] && board[2][2] == 0 && board[0][0] != 0)
@@ -64,14 +64,14 @@ public class hardBot extends Player
         else if (board[1][1] == board[2][2] && board[0][0] == 0 && board[1][1] != 0)
             return new int[]{0, 0};
         else if (board[0][2] == board[1][1] && board[2][0] == 0 && board[0][2] != 0)
-            return new int[]{0, 2};
+            return new int[]{2, 0};
         else if(board[1][1] == board[2][0] && board[0][2] == 0 && board[1][1] != 0)
-            return new int[] {2, 0};
-        //don't need to check space in between because middle space is claimed later if possible. 
+            return new int[] {0, 2};
+        // don't need to check space in between because middle space is claimed later if possible. 
         
-        //claim middle space if possible
+        // claim middle space if possible
         if (board[1][1] == 0)
-            return new int[] {0, 0};
+            return new int[] {1, 1};
             
         //nothing applies
         return null;
