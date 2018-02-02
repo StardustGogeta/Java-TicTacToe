@@ -22,7 +22,10 @@ public class TicTacToe {
             // Let one player make a move
             miniBoard.makeMove(player1);
             victory = miniBoard.checkVictory();
-            if (victory != 0) return victory;
+            if (victory != 0) {
+                System.out.println("FINAL MINI-BOARD:\n" + miniBoard);
+                return victory;
+            }
             // Let other player make a move
             miniBoard.makeMove(player2);
             victory = miniBoard.checkVictory();
