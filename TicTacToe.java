@@ -7,13 +7,14 @@ import java.util.Scanner;
  */
 public class TicTacToe {
     private static int sWins = 0, sLosses = 0, sTies = 0, wins = 0, losses = 0, ties = 0;
-
+    private static boolean pvp = false;
     private final static int PLAYER1_ID = 1, PLAYER2_ID = 2, TIE_ID = -1;
     private static Player player1, player2;
     // 1 creates a human, 2 creates a random CPU, 3 creates a difficult CPU
 
     private static int runGame() {
         System.out.println("Mini-Game Record (for Player 1):\nW: " + wins + "\tT: " + ties + "\tL: " + losses);
+        if (pvp) System.out.println("Mini-Game Record (for Player 2):\nW: " + losses + "\tT: " + ties + "\tL: " + wins);
         Board miniBoard = new Board();
         int victory = 0;
         int move[];
@@ -38,6 +39,7 @@ public class TicTacToe {
 
     private static int runSuperGame() {
         System.out.println("Grandmaster Record (for Player 1):\nW: " + sWins + "\tT: " + sTies + "\tL: " + sLosses);
+        if (pvp) System.out.println("Grandmaster Record (for Player 2):\nW: " + sLosses + "\tT: " + sTies + "\tL: " + sWins);
         Board superBoard = new Board(true);
         int move[];
         while (superBoard.checkVictory() == 0) {
@@ -86,6 +88,7 @@ public class TicTacToe {
                 if (res == 1) {
                     player1 = new playerInput(PLAYER1_ID);
                     player2 = new playerInput(PLAYER2_ID);
+                    pvp = true;
                 }
                 else if (res == 2) {
                     player1 = new playerInput(PLAYER1_ID);
@@ -107,6 +110,7 @@ public class TicTacToe {
             else sLosses++;
 
             System.out.println("Grandmaster Record (for Player 1):\nW: " + sWins + "\tT: " + sTies + "\tL: " + sLosses);
+            if (pvp) System.out.println("Grandmaster Record (for Player 2):\nW: " + sLosses + "\tT: " + sTies + "\tL: " + sWins);
             System.out.println("Would you like to play again? (Y=0)");
             if (scan.nextInt() != 0) break;
         }
