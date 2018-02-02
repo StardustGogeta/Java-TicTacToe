@@ -35,7 +35,7 @@ public class Board
     {
         int[] move = player.getMove(this);
         int x = move[0], y = move[1];
-        assert checkValid(x, y);
+        assert checkValid(x, y) : "" + x + ", " + y + " is not a valid co-ordinate";
         board[y][x] = player.getID();
     }
 

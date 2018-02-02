@@ -4,9 +4,7 @@
  *
  * @author (your name)
  * @version (a version number or a date)
- * 
- * to do:
- * astetically change grand master board
+
  */
 public class hardBot extends Player
 {
