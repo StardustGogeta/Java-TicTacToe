@@ -27,6 +27,7 @@ public class playerInput extends Player
             input.nextLine();
             if (board.checkValid(x,y))
                 check = true;
+            else System.out.println("Invalid coordinates!\nTry again!");
         }
         while (!check);
         int[] a = {x,y};

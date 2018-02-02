@@ -72,7 +72,8 @@ public class Board
 
     public boolean checkValid(int x, int y)
     {
-        return board[y][x] == 0;
+        if (y < 3 && x < 3 && y >= 0 && x >= 0) return board[y][x] == 0;
+        return false;
     }
     
     private static String mult(char c, int i)
