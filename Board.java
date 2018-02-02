@@ -8,7 +8,7 @@ import java.util.HashMap;
 public class Board
 {
     private static final char vertMaster = '‖';
-    private static final char horzMaster = '~';
+    private static final char horzMaster = '=';
     private static final char vertNormal = '|';
     private static final char horzNormal = '―';
     private static final HashMap<Integer, String> symbols = new HashMap(){{
